@@ -1,18 +1,31 @@
 <template>
     <label>
-      <input type="radio" value="física" v-model="tipoPessoa" />
+      <input
+        type="radio"
+        :value="value"
+        :checked="checked"
+        @change="$emit('update:value', $event.target.value)"
+      />
       {{ label }}
     </label>
 </template>
 
 <script setup>
+defineEmits(['update:value'])
 defineProps({
   label: {
     type: String,
     required: true
+  },
+  value: {
+    type: String,
+    required: true
+  },
+  checked: {
+    type: Boolean,
+    default: false
   }
 })
-
 </script>
 
 <style scoped>

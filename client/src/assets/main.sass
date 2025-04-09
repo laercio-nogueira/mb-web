@@ -1,0 +1,37 @@
+:root
+  --primary-color: #ffa500
+  --secondary-color: #ffa60092
+  --tertiary-color: #ffeb3b
+  --white-color: #fff
+  --font-family: Arial, sans-serif
+  --font-size: 16px
+
+*, body
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font: var(--font-size) var(--font-family)
+
+.container
+  max-width: 1200px
+  margin: 0 auto
+  padding: 0 16px
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  gap: 16px
+
+@for $i from 1 through 12
+  .col-#{$i}
+    grid-column: span #{$i} / span #{$i}
+
+@for $i from 1 through 11
+  .offset-#{$i}
+    margin-left: calc(100% / 12 * #{$i})
+
+@for $i from 1 through 100
+  .mt-#{$i}
+    margin-top: #{$i * 8}px
+
+@for $i from 1 through 100
+  .mb-#{$i}
+    margin-bottom: #{$i * 8}px

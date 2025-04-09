@@ -1,14 +1,16 @@
 <template>
   <StepComponent :current="1" :total="4" />
   <TypographyComponent label="Seja bem vindo(a)" />
-  <InputComponent
-    label="Endereço de e-mail"
+  <InputComponent label="Endereço de e-mail"
     :value="modelValue.email"
     @update:value="(value) => updateField('email', value)"
+    type="email"
   />
   <div class="radio-group">
-    <RadioComponent label="Pessoa Física" />
-    <RadioComponent label="Pessoa Juridica" />
+    <RadioComponent label="Pessoa Física" value="pf" :checked="modelValue.type === 'pf'"
+      @update:value="(value) => updateField('type', value)" />
+    <RadioComponent label="Pessoa Juridica" value="pj" :checked="modelValue.type === 'pj'"
+      @update:value="(value) => updateField('type', value)" />
   </div>
 </template>
 
@@ -33,8 +35,6 @@ const updateField = (key, value) => {
     [key]: value
   })
 }
-
-
 </script>
 
 <style scoped>
