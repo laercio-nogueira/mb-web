@@ -1,0 +1,29 @@
+.container
+  max-width: 1200px
+  margin: 0 auto
+  padding: 0 16px
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  gap: 16px
+
+  @media (max-width: 900px)
+    padding: 0 32px
+    max-width: 900px
+    gap: 8px
+    grid-template-columns: repeat(8, 1fr)
+
+@for $i from 1 through 12
+  .col-#{$i}
+    grid-column: span #{$i} / span #{$i}
+
+  @media (max-width: 900px)
+    .col-#{$i}
+      grid-column: span #{$i} / span 6
+
+@for $i from 1 through 11
+  .offset-#{$i}
+    margin-left: calc(100% / 11 * #{$i})
+
+  @media (max-width: 900px)
+    .offset-#{$i}
+      margin-left: 0

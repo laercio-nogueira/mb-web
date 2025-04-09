@@ -1,9 +1,7 @@
 <template>
-  {{ register }}
   <div class="container mt-8">
-    <div class="col-8 offset-6">
+    <div class="col-9 offset-4">
       <component :is="steps[currentStep]" v-model="register" />
-
       <ButtonGroup v-model="currentStep" :register="register" />
     </div>
   </div>
@@ -29,7 +27,7 @@ const steps = {
 }
 
 const register = ref({
-  email: "laerciopesa30@hotmail.com",
+  email: "",
   type: "",
   name: "",
   document: "",

@@ -38,7 +38,7 @@ const next = () => {
       if (props.register.type === "pj") emit('update:modelValue', 2)
       break
     case 1:
-      if (props.register.value.type === "pf") emit('update:modelValue', 3)
+      if (props.register.type === "pf") emit('update:modelValue', 3)
       break
     default:
       emit('update:modelValue', props.modelValue + 1)
@@ -46,12 +46,12 @@ const next = () => {
 }
 const prev = () => {
   switch (props.modelValue) {
+    case 2:
+      if (props.register.type === "pj") emit('update:modelValue', 0)
+      break
     case 3:
       if (props.register.type === "pf") emit('update:modelValue', 1)
       if (props.register.type === "pj") emit('update:modelValue', 2)
-      break
-    case 2:
-      if (props.register.type === "pj") emit('update:modelValue', 0)
       break
     default:
       emit('update:modelValue', props.modelValue - 1)
@@ -69,6 +69,8 @@ const isDisabled = () => {
         && !!props.register.document
         && !!props.register.date
         && !!props.register.phone
+    case 3:
+      return !!props.register.password
     default:
       return true
   }

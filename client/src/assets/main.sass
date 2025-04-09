@@ -1,3 +1,5 @@
+@use './grid.sass'
+
 :root
   --primary-color: #ffa500
   --secondary-color: #ffa60092
@@ -11,22 +13,6 @@
   padding: 0
   box-sizing: border-box
   font: var(--font-size) var(--font-family)
-
-.container
-  max-width: 1200px
-  margin: 0 auto
-  padding: 0 16px
-  display: grid
-  grid-template-columns: repeat(12, 1fr)
-  gap: 16px
-
-@for $i from 1 through 12
-  .col-#{$i}
-    grid-column: span #{$i} / span #{$i}
-
-@for $i from 1 through 11
-  .offset-#{$i}
-    margin-left: calc(100% / 12 * #{$i})
 
 @for $i from 1 through 100
   .mt-#{$i}
