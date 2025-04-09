@@ -6,6 +6,13 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
+  build: {
+    manifest: true,
+    rollupOptions: {
+      input: '/src/main.js',
+    },
+    outDir: '../bff/dist',
+  },
   plugins: [
     vue(),
     vueDevTools(),

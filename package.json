@@ -1,0 +1,17 @@
+{
+  "name": "mb-web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "npm run start:bff && npm run start:client",
+    "dev": "npm-run-all --parallel dev:client dev:bff",
+    "start:bff": "cd ./bff && node ./index.js",
+    "start:client": "cd ./client && npm run build",
+    "dev:bff": "cd ./bff && nodemon ./index.js",
+    "dev:client": "cd ./client && npm run build -- --watch"
+  },
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
