@@ -16,6 +16,16 @@ const steps = {
   4: StepDoubleCheck
 }
 
+const register = ref({
+  email: "laerciopesa30@hotmail.com",
+  type: "",
+  name: "",
+  document: "",
+  date: "",
+  phone: "",
+  password: ""
+})
+
 const next = () => {
   currentStep.value++
 }
@@ -26,7 +36,7 @@ const prev = () => {
 
 <template>
   <div class="step-container">
-    <component :is="steps[currentStep]" />
+    <component :is="steps[currentStep]" v-model="register" />
     <div style="margin-top: 1rem;">
        <button @click="prev" :disabled="currentStep === 0" class="btn-outline">
         Voltar

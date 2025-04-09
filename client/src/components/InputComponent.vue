@@ -1,16 +1,19 @@
 <template>
     <label for="email">{{ label }}</label>
-    <input id="email" v-model="email" type="email" class="input" />
+    <input id="email"
+      type="email"
+      class="input"
+      :value="value"
+      @input="$emit('update:value', $event.target.value)"
+    />
 </template>
 
 <script setup>
+defineEmits(['update:value'])
 defineProps({
-  label: {
-    type: String,
-    required: true
-  }
+  value: String,
+  label: String
 })
-
 </script>
 
 <style scoped>
