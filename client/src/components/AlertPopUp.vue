@@ -51,11 +51,11 @@ onMounted(() => {
 }
 
 .bg-success {
-  background-color: #2ecc71;
+  background-color: var(--success-color);
 }
 
 .bg-error {
-  background-color: #e74c3c;
+  background-color: var(--error-color);;
 }
 
 .close-btn {
