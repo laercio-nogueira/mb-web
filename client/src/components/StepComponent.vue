@@ -17,12 +17,6 @@ defineProps({
 </script>
 
 <style scoped>
-.step-container {
-  max-width: 300px;
-  margin: auto;
-  font-family: sans-serif;
-}
-
 .step-text {
   font-size: 14px;
   margin-bottom: 8px;

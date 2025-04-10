@@ -28,6 +28,3 @@ const updateField = (key, value) => {
   })
 }
 </script>
-
-<style scoped>
-</style>
