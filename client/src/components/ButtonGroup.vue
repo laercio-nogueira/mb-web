@@ -65,6 +65,17 @@ const prev = () => {
   }
 }
 
+const validateDate = (dateTarget) => {
+  const date = new Date(dateTarget)
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  date.setHours(0, 0, 0, 0)
+  const yearValid = date.getFullYear() > 1900 && date.getFullYear() <= today.getFullYear()
+  const isNotFuture = date < today
+
+  return yearValid && !isNaN(date.getTime()) && isNotFuture
+}
+
 const isDisabled = () => {
   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const regexCPF = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
@@ -80,7 +91,7 @@ const isDisabled = () => {
         && (props.register.type === "pf"
           ? regexCPF.test(props.register.document)
           : regexCNPJ.test(props.register.document))
-        && !!props.register.date
+        && validateDate(props.register.date)
         && props.register.phone.length > 13
     case 3:
       return props.register.password.length > 5
@@ -91,7 +102,7 @@ const isDisabled = () => {
         && (props.register.type === "pf"
           ? regexCPF.test(props.register.document)
           : regexCNPJ.test(props.register.document))
-        && props.register.date
+        && validateDate(props.register.date)
         && props.register.phone.length > 13
         && props.register.password.length > 5
     default:
