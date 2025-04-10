@@ -3,7 +3,7 @@
   <TypographyComponent label="Pessoa Jurídica" />
 
   <InputComponent label="Razão social" :value="modelValue.name" @update:value="(value) => updateField('name', value)" />
-  <InputComponent label="CNPJ" :value="modelValue.document" @update:value="(value) => updateField('document', value)" />
+  <InputComponent label="CNPJ" :value="modelValue.document" @update:value="(value) => updateField('document', value)" type="cnpj"/>
   <InputComponent label="Data de Abertura" :value="modelValue.date" @update:value="(value) => updateField('date', value)" type="date" />
   <InputComponent label="Telefone" :value="modelValue.phone" @update:value="(value) => updateField('phone', value)" type="phone" />
 </template>

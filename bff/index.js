@@ -14,6 +14,7 @@ const corsOption = {
 }
 
 app.use(cors(corsOption));
+app.use(express.json());
 app.engine('mustache', mustacheExpress());
 
 app.set('view engine', 'mustache');

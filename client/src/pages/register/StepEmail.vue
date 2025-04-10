@@ -30,9 +30,17 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue'])
 
 const updateField = (key, value) => {
+
   emit('update:modelValue', {
     ...props.modelValue,
-    [key]: value
+    [key]: value,
+    ...(value === 'pf' || value === 'pj' && {
+      name: "",
+      document: "",
+      date: "",
+      phone: "",
+      password: ""
+    })
   })
 }
 </script>
